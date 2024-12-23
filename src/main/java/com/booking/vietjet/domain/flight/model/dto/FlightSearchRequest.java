@@ -2,12 +2,14 @@ package com.booking.vietjet.domain.flight.model.dto;
 
 
 
-//import lombok.Data;
+
+
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-//@Data
+@Data
 public class FlightSearchRequest {
     private Integer type;
     private Integer airlineId;
