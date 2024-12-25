@@ -2,6 +2,8 @@ package com.booking.vietjet.domain.flight.model.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -9,6 +11,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "flight")
+@Getter
+@Setter
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,77 +46,4 @@ public class Flight {
     private BigDecimal price; // Sum of TicketTypePrice by flightID
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    public int getAirlineId() {
-        return airlineId;
-    }
-
-    public void setAirlineId(int airlineId) {
-        this.airlineId = airlineId;
-    }
-
-    public int getOriginAirportId() {
-        return originAirportId;
-    }
-
-    public void setOriginAirportId(int originAirportId) {
-        this.originAirportId = originAirportId;
-    }
-
-    public int getDestinationAirportId() {
-        return destinationAirportId;
-    }
-
-    public void setDestinationAirportId(int destinationAirportId) {
-        this.destinationAirportId = destinationAirportId;
-    }
-
-    public LocalDateTime getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(LocalDateTime departureTime) {
-        this.departureTime = departureTime;
-    }
-
-    public LocalDateTime getArrivalTime() {
-        return arrivalTime;
-    }
-
-    public void setArrivalTime(LocalDateTime arrivalTime) {
-        this.arrivalTime = arrivalTime;
-    }
-
-
-
-    public int getSeatCount() {
-        return seatCount;
-    }
-
-    public void setSeatCount(int seatCount) {
-        this.seatCount = seatCount;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
 }
