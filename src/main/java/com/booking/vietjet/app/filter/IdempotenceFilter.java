@@ -58,8 +58,4 @@ public class IdempotenceFilter extends OncePerRequestFilter {
         log.debug("Stored request ID {} in Redis with TTL of 5 minutes", requestId);
     }
 
-
-    private boolean isNotTargetMethod(String method) {
-        return !HttpMethod.POST.matches(method);
-    }
 }

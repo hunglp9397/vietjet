@@ -22,7 +22,6 @@ public class RedisConfig {
 
     @Bean
     public LettuceConnectionFactory redisConnectionFactory() {
-        // Tạo Standalone Connection tới Redis
         return new LettuceConnectionFactory(new RedisStandaloneConfiguration(redisHost, redisPort));
 
     }
@@ -30,10 +29,6 @@ public class RedisConfig {
     @Bean
     @Primary
     public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        // tạo ra một RedisTemplate
-        // Với Key là Object
-        // Value là Object
-        // RedisTemplate giúp chúng ta thao tác với Redis
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory);
         return template;
