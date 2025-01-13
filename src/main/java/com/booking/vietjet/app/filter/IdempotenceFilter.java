@@ -40,7 +40,7 @@ public class IdempotenceFilter extends OncePerRequestFilter {
             } else {
                 storeRequestIdInRedis(requestId);
 
-                // Continue with the filter chain
+                // Continue filter chain
                 filterChain.doFilter(request, response);
             }
         }
@@ -55,7 +55,7 @@ public class IdempotenceFilter extends OncePerRequestFilter {
 
     private void storeRequestIdInRedis(String requestId) {
         redisTemplate.opsForValue().set(requestId, "processed", 5, TimeUnit.MINUTES);
-        log.debug("Stored request ID {} in Redis with TTL of 5 minutes", requestId);
+        log.debug("Stored request ID {} in Redis with TTL 5 minutes", requestId);
     }
 
 }

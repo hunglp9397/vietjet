@@ -43,5 +43,4 @@ public class User {
     @Column(name = "updated_by")
     private String updatedBy;
 
-
 }

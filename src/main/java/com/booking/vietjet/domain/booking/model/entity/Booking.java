@@ -1,51 +1,62 @@
 package com.booking.vietjet.domain.booking.model.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "booking")
-@RequiredArgsConstructor
-@Getter
-@Setter
-@Builder
-@AllArgsConstructor
+@Data
 public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "request_id")
-    private String requestId;
+    @Column(nullable = false)
+    private String status;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "voucher_code")
+    private String voucherCode;
 
-    @Column(name = "flight_id")
-    private Long flightId;
+    @Column(name = "ticket_amount", nullable = false)
+    private BigDecimal ticketAmount;
 
-    @Column(name = "status")
-    private Integer status;
+    @Column(name = "fee_amount", nullable = false)
+    private BigDecimal feeAmount;
 
-    @Column(name = "subtotal")
-    private BigDecimal subtotal;
+    @Column(name = "discount_count", nullable = false)
+    private BigDecimal discountCount;
 
-    @Column(name = "discount")
-    private BigDecimal discount;
-
-    @Column(name = "total_amount")
+    @Column(name = "total_amount", nullable = false)
     private BigDecimal totalAmount;
 
-    @Column(name = "booking_time")
-    private LocalDateTime bookingTime;
+    @Column(name = "checkout_at")
+    private LocalDateTime checkoutAt;
 
-    @Column(name = "note")
-    private String note;
+    @Column(name = "paid_at")
+    private LocalDateTime paidAt;
 
+    @Column(name = "extra_data", columnDefinition = "json")
+    private String extraData;
 
+    @Column(nullable = false)
+    private int version;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdAt;
+
+    @Column(name = "created_by")
+    private String createdBy;
+
+    @Column(name = "updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime updatedAt;
+
+    @Column(name = "updated_by")
+    private String updatedBy;
 
 }

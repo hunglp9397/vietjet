@@ -18,7 +18,5 @@ public class ApiResponse<T> {
     public static class Message {
         private int statusCode;
         private String message;
-
-
     }
 }
