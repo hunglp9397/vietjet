@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class IdempotenceFilter extends OncePerRequestFilter {
+public class IdempotentFilter extends OncePerRequestFilter {
 
     @Autowired
     private RedisTemplate redisTemplate;

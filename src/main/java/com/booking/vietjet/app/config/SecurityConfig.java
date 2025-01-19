@@ -1,4 +1,4 @@
-package com.booking.vietjet.config;
+package com.booking.vietjet.app.config;
 
 
 import com.booking.vietjet.app.filter.IdempotenceFilter;
