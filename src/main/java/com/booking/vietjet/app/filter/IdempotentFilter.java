@@ -44,8 +44,6 @@ public class IdempotentFilter extends OncePerRequestFilter {
                 filterChain.doFilter(request, response);
             }
         }
-
-
     }
 
     private boolean isRequestIdExistsInRedis(String requestId) {

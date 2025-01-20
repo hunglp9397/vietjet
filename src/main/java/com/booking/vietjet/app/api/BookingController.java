@@ -7,5 +7,10 @@ import org.springframework.web.bind.annotation.*;
 public class BookingController {
 
 
+    @GetMapping()
+    public String getListBookings() {
+        return "1";
+    }
+
 
 }
