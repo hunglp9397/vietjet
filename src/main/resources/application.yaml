@@ -13,14 +13,14 @@ spring:
     url: jdbc:postgresql://localhost:5432/vietjet
     username: admin
     password: admin
-    driver-class-name: org.postgresql.Driver # Add this line for clarity
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     open-in-view: false
     show-sql: true
     hibernate:
       format_sql: true
-      ddl-auto: update
+      ddl-auto: none
       dialect: org.hibernate.dialect.PostgreSQLDialect
 
   jackson:

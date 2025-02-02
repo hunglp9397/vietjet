@@ -21,7 +21,7 @@ public class CacheService {
     }
 
     public void set(String key, Object value, long ttl){
-        log.info("Cache set key: {} to {} with ttl {}", key, value, ttl);
+        log.info("Cache set key: {} value : {} with ttl {}", key, value, ttl);
         redisTemplate.opsForValue().set(key, value, ttl, TimeUnit.MILLISECONDS);
     }
 

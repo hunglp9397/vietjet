@@ -39,10 +39,10 @@ public class IdempotentFilter extends OncePerRequestFilter {
                 response.sendError(HttpServletResponse.SC_CONFLICT, "Duplicate REQUEST_ID detected");
             } else {
                 storeRequestIdInRedis(requestId);
-
-                // Continue filter chain
-                filterChain.doFilter(request, response);
+                filterChain.doFilter(request, response); // Continue filter chain
             }
+        } else {
+            filterChain.doFilter(request, response); // Continue filter chain
         }
     }
 
