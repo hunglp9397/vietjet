@@ -38,14 +38,12 @@ public class AirportService {
                 }
             }
 
-
+            apiResponse.setData(airportsResult);
+            apiResponse.setMessage(new ApiResponse.Message(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getType()));
         } catch (Exception e) {
             log.error("Error while getting airports {}", e.getMessage());
             apiResponse.setMessage(new ApiResponse.Message(ResponseCode.INTERNAL_SERVER_ERROR.getCode(), e.getMessage()));
         }
-
-        apiResponse.setData(airportsResult);
-        apiResponse.setMessage(new ApiResponse.Message(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getType()));
         return apiResponse;
     }
 
