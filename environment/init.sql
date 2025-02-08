@@ -34,7 +34,7 @@ CREATE TABLE flight
 CREATE TABLE seat_availability
 (
     sa_id     SERIAL PRIMARY KEY,
-    flight_id INT     NOT NULL REFERENCES flight (flight_id),
+    flight_id INT     NOT NULL REFERENCES flight (id),
     seat_code VARCHAR NOT NULL,
     status    VARCHAR NOT NULL,
     price     NUMERIC NOT NULL
@@ -73,7 +73,7 @@ CREATE TABLE booking
 CREATE TABLE booking_passenger
 (
     booking_id   INT NOT NULL REFERENCES booking (id),
-    passenger_id INT NOT NULL REFERENCES passenger (passenger_id),
+    passenger_id INT NOT NULL REFERENCES passenger (id),
     PRIMARY KEY (booking_id, passenger_id)
 );
 
@@ -81,8 +81,8 @@ CREATE TABLE ticket
 (
     ticket_id    SERIAL PRIMARY KEY,
     status       VARCHAR   NOT NULL,
-    flight_id    INT       NOT NULL REFERENCES flight (flight_id),
-    passenger_id INT       NOT NULL REFERENCES passenger (passenger_id),
+    flight_id    INT       NOT NULL REFERENCES flight (id),
+    passenger_id INT       NOT NULL REFERENCES passenger (id),
     seat_code    VARCHAR   NOT NULL,
     issued_at    TIMESTAMP NOT NULL,
     booking_id   INT REFERENCES booking (id),
@@ -93,7 +93,7 @@ CREATE TABLE booking_direction
 (
     bd_id           SERIAL PRIMARY KEY,
     booking_id      INT      NOT NULL REFERENCES booking (id),
-    flight_id       INT      NOT NULL REFERENCES flight (flight_id),
+    flight_id       INT      NOT NULL REFERENCES flight (id),
     direction       SMALLINT NOT NULL, -- 0 = Away, 1 = Return
     subtotal_amount NUMERIC  NOT NULL
 );
