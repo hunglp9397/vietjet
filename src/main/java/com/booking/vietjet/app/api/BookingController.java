@@ -1,7 +1,6 @@
 package com.booking.vietjet.app.api;
 
 import com.booking.vietjet.domain.booking.model.dto.BookingRequest;
-import com.booking.vietjet.domain.booking.model.entity.Booking;
 import com.booking.vietjet.domain.booking.service.BookingFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +22,4 @@ public class BookingController {
     public void booking(@RequestBody BookingRequest bookingRequest) {
         bookingFactory.build(bookingRequest);
     }
-
-
 }
